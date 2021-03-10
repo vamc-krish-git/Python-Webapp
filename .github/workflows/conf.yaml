@@ -11,4 +11,4 @@ jobs:
     - name: Setup Python
       uses: actions/setup-python@v2
     - name: install req
-      run: pip install --quiet --requirement ../../requirements.txt
+      run: pip install --quiet --requirement requirements.txt
