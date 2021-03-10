@@ -1,0 +1,14 @@
+name: CISample
+
+on: [push]
+env:
+  APP_NAME: Test Python
+jobs:
+  lintjob:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: python env
+      uses: actions/python@v1.1.1
+    - name: install req
+      run: pip install --quiet --requirememt ../../requirements.txt
