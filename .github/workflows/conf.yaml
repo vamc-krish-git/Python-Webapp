@@ -12,8 +12,8 @@ jobs:
       uses: actions/setup-python@v2
     - name: install req
       run: pip install --quiet --requirement requirements.txt
-  #   - name: Python Linting
-  # # You may pin to the exact commit or the version.
-  # # uses: WhyNotHugo/python-linting@17bef49b0602da95c0cefea5b2d28f758f5fc2b9
-  # # Here we use sonarqube
-  #     uses: WhyNotHugo/python-linting@v1.0.0
+    - name: Python Linting
+  # You may pin to the exact commit or the version.
+  # uses: WhyNotHugo/python-linting@17bef49b0602da95c0cefea5b2d28f758f5fc2b9
+  # Here we use sonarqube
+      uses: WhyNotHugo/python-linting@v1.0.0
