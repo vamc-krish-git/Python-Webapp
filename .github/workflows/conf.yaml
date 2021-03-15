@@ -1,6 +1,6 @@
 name: CISample
 
-on: [push]
+on: [push, pullrequest]
 env:
   APP_NAME: Test Python
 jobs:
