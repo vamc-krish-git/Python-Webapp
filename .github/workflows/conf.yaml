@@ -1,6 +1,9 @@
 name: CISample
 
-on: [push]
+on: 
+  push:
+    branches:
+      - Feature*
 env:
   APP_NAME: Test Python
 jobs:
