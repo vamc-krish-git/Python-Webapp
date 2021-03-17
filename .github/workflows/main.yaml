@@ -1,0 +1,15 @@
+name: CIMain
+
+on:
+  push:
+    branches: 
+      - main
+
+jobs:
+  OnMain:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build the Pything Image
+        run: docker build . -f DockerFile --tag vamc/python
