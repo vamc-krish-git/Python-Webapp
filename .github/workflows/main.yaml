@@ -9,6 +9,8 @@ on:
 jobs:
   OnMain:
     runs-on: ubuntu-latest
+    env:
+      dt: ${{ date +%s}}
     steps:
       - name: Fetch date
         id: datetag
