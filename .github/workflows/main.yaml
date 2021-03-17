@@ -12,4 +12,4 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Build the Pything Image
-        run: docker build . -f DockerFile --tag vamc/python
+        run: docker build . --tag vamc/python
