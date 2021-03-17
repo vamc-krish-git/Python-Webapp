@@ -10,27 +10,21 @@ jobs:
   OnMain:
     runs-on: ubuntu-latest
     steps:
-    - name: Get current time
-      uses: gerred/actions/current-time@master
-      id: current-time
-    - name: Use current time
-      env:
-        TIME: "${{ steps.current-time.outputs.time }}"
-      run: echo $TIME 
-    - name: Get current date
-      id: date
-      run: echo "::set-output name=date::$(date +%s)"
-    - name: print date
-      run: echo ${{steps.date.outputs.date}}
-      # - uses: actions/checkout@v2
-      # - name: Login to Docker
-      #   env:
-      #     DOCKER_USER: ${{secrets.DOCKER_ID}}
-      #     DOCKER_PASSWORD: ${{secrets.DOCKER_PWD}}
-      #   run: docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
-      # - name: Build Python webapp Image
-      #   run: docker build . --tag vamc1715/learnk8s:tag1
-      # - name: docker list
-      #   run: docker images
-      # - name: Push the Image to my Public Repo
-      #   run: docker push vamc1715/learnk8s:tag1
+      - name: Get current date
+        id: date
+        run: echo "::set-output name=date::$(date +%s)"
+      - name: print date
+        run: echo ${{steps.date.outputs.date}}
+        
+      - uses: actions/checkout@v2
+      - name: Login to Docker
+        env:
+          DOCKER_USER: ${{secrets.DOCKER_ID}}
+          DOCKER_PASSWORD: ${{secrets.DOCKER_PWD}}
+        run: docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
+      - name: Build Python webapp Image
+        run: docker build . --tag vamc1715/learnk8s:${{steps.date.outputs.date}}
+      - name: docker list
+        run: docker images
+      - name: Push the Image to my Public Repo
+        run: docker push vamc1715/learnk8s:${{steps.date.outputs.date}}
