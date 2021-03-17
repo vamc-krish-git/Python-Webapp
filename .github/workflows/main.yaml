@@ -18,6 +18,6 @@ jobs:
           DOCKER_PASSWORD: ${{secrets.DOCKER_PWD}}
         run: docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
       - name: Build and Push the Python Image to docker Hub
-        run: docker build . --tag vamc/python:$(date +%s)
+        run: docker build . --tag vamc1715/learnk8s:$(date +%s)
       - name: Push the Image to my Public Repo
         run: docker push ${{secrets.DOCKER_ID}}/learnk8s
