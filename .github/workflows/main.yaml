@@ -9,14 +9,14 @@ on:
 jobs:
   OnMain:
     runs-on: ubuntu-latest
-    env:
-      dt: ${{ date +%s}}
     steps:
-      - name: Fetch date
-        id: datetag
-        run: echo $(date +%s)
-      - name: check the value
-        run: echo ${{ steps.datetag.output }}
+    - name: Get current time
+      uses: gerred/actions/current-time@master
+      id: current-time
+    - name: Use current time
+      env:
+        TIME: "${{ steps.current-time.outputs.time }}"
+      run: echo $TIME
       # - uses: actions/checkout@v2
       # - name: Login to Docker
       #   env:
