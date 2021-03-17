@@ -16,7 +16,12 @@ jobs:
     - name: Use current time
       env:
         TIME: "${{ steps.current-time.outputs.time }}"
-      run: echo $TIME
+      run: echo $TIME 
+    - name: Get current date
+      id: date
+      run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
+    - name: print date
+      run: echo ${{steps.date.outputs.date}}
       # - uses: actions/checkout@v2
       # - name: Login to Docker
       #   env:
