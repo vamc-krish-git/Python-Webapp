@@ -9,12 +9,10 @@ on:
 jobs:
   OnMain:
     runs-on: ubuntu-latest
-    env:
-      TAG: ${{ date +%s }}
     steps:
       - name: Fetch date
         id: datetag
-        run: echo "Test"
+        run: echo "$(date +s%)"
       - name: check the value
         run: echo ${{ steps.datetag.output }}
       # - uses: actions/checkout@v2
