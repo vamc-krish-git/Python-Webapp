@@ -19,7 +19,7 @@ jobs:
       run: echo $TIME 
     - name: Get current date
       id: date
-      run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
+      run: echo "::set-output name=date::$(date +%s)"
     - name: print date
       run: echo ${{steps.date.outputs.date}}
       # - uses: actions/checkout@v2
