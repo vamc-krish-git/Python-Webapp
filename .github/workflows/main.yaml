@@ -20,4 +20,4 @@ jobs:
       - name: Build and Push the Python Image to docker Hub
         run: docker build . --tag vamc1715/learnk8s:$(date +%s)
       - name: Push the Image to my Public Repo
-        run: docker push ${{secrets.DOCKER_ID}}/learnk8s
+        run: docker push vamc1715/learnk8s
