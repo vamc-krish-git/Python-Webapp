@@ -10,7 +10,7 @@ jobs:
   OnMain:
     runs-on: ubuntu-latest
     env:
-      TAG: $(date +%s)
+      TAG: ${{ date +%s }}
     steps:
       - uses: actions/checkout@v2
       - name: Login to Docker
