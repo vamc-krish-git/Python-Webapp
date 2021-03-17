@@ -9,14 +9,14 @@ on:
 jobs:
   OnMain:
     runs-on: ubuntu-latest
-
+    env:
+      TAG: $(date +%s)
     steps:
       - uses: actions/checkout@v2
       - name: Login to Docker
         env:
           DOCKER_USER: ${{secrets.DOCKER_ID}}
           DOCKER_PASSWORD: ${{secrets.DOCKER_PWD}}
-          TAG: $(date +%s)
         run: docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
       - name: Build Python webapp Image
         run: docker build . --tag vamc1715/learnk8s:$TAG
