@@ -1,0 +1,14 @@
+on:
+  pull_request:
+    branches:
+      - main
+    types: [closed]
+
+jobs:
+  Deploy:
+    if: github.event.pull_request.merged == true
+    steps: 
+      - name: Initiate Deploy
+        run: echo "Deployment Initiated"
+      - name: Deploy
+        run: echo "Code Deployment after Merge is successful"

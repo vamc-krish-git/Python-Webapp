@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - Feature*
+  pull_request:
+    branches:
+      - Feature*
 env:
   APP_NAME: Test Python
 jobs:
