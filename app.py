@@ -18,6 +18,11 @@ def blue():
     print("This is Blue..")
     return render_template('blue.html')
 
+@app.route('/gray')
+def gray():
+    print("This is Gray..")
+    return render_template('gray.html')
+
 if __name__ == "__main__":
     app.run(debug=True,host='0.0.0.0',port="3000")
 
