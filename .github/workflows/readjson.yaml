@@ -1,0 +1,36 @@
+name: Read Json as input
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+    inputs:
+        json_input:
+          description: 'JSON input'
+          required: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Set up Python version
+        uses: actions/setup-python@v1
+        with:
+          python-version: '3.11'
+    
+      - name: Set up JSON input
+          run: echo "${{ github.event.inputs.json_input }}" > input.json
+
+      - name: Create and start virtual environment
+        run: |
+          python -m venv venv
+          source venv/bin/activate
+
+      - name: print json
+          run: |
+           ls -ltr 
+           cat input.json
