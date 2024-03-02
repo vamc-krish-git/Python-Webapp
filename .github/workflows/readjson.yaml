@@ -38,8 +38,7 @@ jobs:
 
       - name: GitHub Env
         run: |
-          JSON_DATA=$(cat input.json)
-          echo "$JSON_DATA" | jq -r 'to_entries[] | "export \(.key)=\"\(.value)\""' >> $GITHUB_ENV
+          python setenvfromjson.py
 
       - name: Print env
         run: |
