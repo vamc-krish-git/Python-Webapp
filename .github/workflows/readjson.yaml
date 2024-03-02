@@ -25,7 +25,7 @@ jobs:
       - name: set up Json
         run: |
             echo """${{ github.event.inputs.json_input }}""" > input.json
-            python setenvfromjson.py "${{ github.event.inputs.json_input }}"
+            python setenvfromjson.py """${{ github.event.inputs.json_input }}"""
     
       - name: Create and start virtual environment
         run: |
