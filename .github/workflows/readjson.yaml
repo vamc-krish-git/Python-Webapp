@@ -35,12 +35,19 @@ jobs:
         run: |
           ls -ltr
           cat input.json
-
-      - name: GitHub Env
+          
+      - name: Read JSON input and set environment variables
         run: |
-          python setenvfromjson.py
+            echo "${{ github.event.inputs.json_input }}" > input.json
+            JSON_DATA=$(cat input.json)
+            echo "::set-env name=JSON_DATA::$JSON_DATA"
+
+      # - name: GitHub Env
+      #   run: |
+      #     python setenvfromjson.py
 
       - name: Print env
         run: |
           echo "Environment variables set"
           env
+
