@@ -31,7 +31,7 @@ jobs:
           python -m venv venv
           source venv/bin/activate
 
-      - name: Create and start virtual environment
+      - name: Print Json
         run: |
           ls -ltr
           cat input.json
