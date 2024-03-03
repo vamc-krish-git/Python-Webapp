@@ -12,3 +12,5 @@ print(my_dict)
 for key, value in my_dict.items():
     os.environ[key] = value
 
+print(os.environ['key1'])  # Output: value1
+print(os.environ['key2'])  # Output: value2

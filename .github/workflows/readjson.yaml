@@ -34,4 +34,6 @@ jobs:
       - name: Print env
         run: |
           echo "Environment variables set"
+          echo "KEY1: $KEY1"
+          echo "KEY2: $KEY2"
           env
