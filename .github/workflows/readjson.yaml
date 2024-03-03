@@ -22,33 +22,16 @@ jobs:
         with:
           python-version: '3.11'
 
-      - name: set up Json
+      - name: set environment
         run: |
-            echo """${{ github.event.inputs.json_input }}""" > input.json
-            python setenvfromjson.py """${{ github.event.inputs.json_input }}"""
+            python setenvfromdict.py "${{ github.event.inputs.json_input }}"
     
       - name: Create and start virtual environment
         run: |
           python -m venv venv
           source venv/bin/activate
-
-      - name: Print Json
-        run: |
-          ls -ltr
-          cat input.json
           
-      # - name: Read JSON input and set environment variables
-      #   run: |
-      #       echo "${{ github.event.inputs.json_input }}" > input.json
-      #       JSON_DATA=$(cat input.json)
-      #       echo "::set-env name=JSON_DATA::$JSON_DATA"
-
-      # - name: GitHub Env
-      #   run: |
-      #     python setenvfromjson.py
-
-      # - name: Print env
-      #   run: |
-      #     echo "Environment variables set"
-      #     env
-
+      - name: Print env
+        run: |
+          echo "Environment variables set"
+          env
