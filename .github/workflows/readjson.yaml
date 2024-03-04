@@ -25,6 +25,9 @@ jobs:
       - name: set environment
         run: |
             python setenvfromdict.py "${{ github.event.inputs.json_input }}"
+            echo $KEY1
+            echo $key1
+            echo "key1=valueset1" >> $GITHUB_ENV
     
       - name: Create and start virtual environment
         run: |
